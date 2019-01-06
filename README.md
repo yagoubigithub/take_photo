@@ -4,7 +4,8 @@
 ```<img src={value returned from the component} width="" height />```
 __it's work corecctely with Dialog component of material-ui__
 
-### Demo [Photo](https://vigilant-galileo-3e06a1.netlify.com/)
+### Demo ```isMulti={true}``` [Photo](https://eloquent-kare-2a923f.netlify.com/)
+### Demo ```isMulti={false}``` [Photo](https://gallant-hodgkin-cebe88.netlify.com/)
 
 ## simple Exemple :
 In parent compnent  :
