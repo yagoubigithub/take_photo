@@ -25,12 +25,10 @@ class App extends Component {
       this.setState({ openDialog: !this.state.openDialog});
     
   };
-  getData = val => {
-    console.log(val);
-       /*  const photos = [...this.state.photos];
-    photos.push({ imageData: val, selected: false });
-    localStorage.setItem("photos", JSON.stringify(photos));
-    this.setState({ photos }); */
+  getData = src => {
+    console.log(src);
+    this.setState({src});
+     
   };
   render() {
     return (
@@ -52,6 +50,8 @@ class App extends Component {
             />
           )
         </Dialog>
+
+        {this.state.src ? <img src={this.state.src} width="200" height="200" /> :null}
       </div>
     );
   }

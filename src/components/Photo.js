@@ -14,7 +14,8 @@ import {
   Pause,
   Brightness1,
   CameraFront,
-  CameraRear
+  CameraRear,
+  Replay
 } from "@material-ui/icons/";
 
 
@@ -48,11 +49,12 @@ class Photo extends Component {
   
         const video = document.getElementById("video"),
         canvas = document.getElementById("canvas"),
-        capture = document.getElementById("capture");
+        capture = document.getElementById("capture"),
+        replay = document.getElementById("replay");
       let width = 0;
       let height = 0;
       capture.style.opacity = 0;
-    
+      replay.style.opacity = 0;
       video.addEventListener("loadedmetadata", function() {
         capture.style.opacity = 1;
         width = this.videoWidth;
@@ -101,7 +103,8 @@ class Photo extends Component {
         const video = document.getElementById("video"),
           canvas = document.getElementById("canvas"),
           span_img = document.getElementById("span_img"),
-          context = canvas.getContext("2d");
+          context = canvas.getContext("2d"),
+          replay = document.getElementById("replay");
         span_img.innerHTML = "";
     
         var img = document.createElement("img");
@@ -116,11 +119,11 @@ class Photo extends Component {
         img.setAttribute("width", window.innerWidth);
     
         img.style.opacity = 1;
-        img.style.transition = "transform 1s";
-    
-        img.style.transform = `translate(-${video.videoWidth}px,-${
-          video.videoHeight
-        }px)`;
+        replay.style.opacity = 1;
+        replay.addEventListener("click",()=>{
+            img.style.opacity= 0;
+
+        });
        
       };
     render() {
@@ -145,6 +148,13 @@ class Photo extends Component {
                   onClick={this.handelCapture}
                   id="capture">
                   <Camera fontSize="large" />
+                </IconButton>
+
+                <IconButton
+                  style={{ position: "absolute", bottom: 0, left: "0" }}
+                
+                  id="replay">
+                  <Replay fontSize="large" />
                 </IconButton>
     
     
