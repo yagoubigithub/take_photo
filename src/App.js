@@ -2,18 +2,10 @@ import React, { Component } from "react";
 import Photo from "./components/Photo";
 import IconButton from "@material-ui/core/IconButton";
 import { Dialog } from "@material-ui/core";
-import SaveIcon from "@material-ui/icons/Save";
 
 import {
   PhotoCamera,
-  Close,
-  Videocam,
-  Camera,
-  PlayArrow,
-  Pause,
-  Brightness1,
-  CameraFront,
-  CameraRear
+ 
 } from "@material-ui/icons/";
 
 class App extends Component {
@@ -27,7 +19,7 @@ class App extends Component {
   };
   getData = src => {
     console.log(src);
-    this.setState({src});
+    
      
   };
   render() {
@@ -45,13 +37,12 @@ class App extends Component {
           
             <Photo
               sendData={this.getData}
-              photos={this.state.photos}
+              isMulti={true}
               handelOpenCloseDialog={this.handelOpenCloseDialog}
             />
           )
         </Dialog>
 
-        {this.state.src ? <img src={this.state.src} width="200" height="200" /> :null}
       </div>
     );
   }
