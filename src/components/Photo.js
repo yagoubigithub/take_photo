@@ -42,18 +42,28 @@ class Photo extends Component {
     let width = 0;
     let height = 0;
     capture.style.display = 'none';
+    if(this.props.width !== undefined && !isNaN(this.props.width)){
+      video.setAttribute("width", this.props.width);
+
+    }
+    if(this.props.height !== undefined && !isNaN(this.props.height)){
+      video.setAttribute("height", this.props.height);
+
+    }
     if(this.props.isMulti){
         document.getElementById("replay").style.display = 'none';
         document.getElementById("save").style.display = 'none';
     }
   
 
-    video.addEventListener("loadedmetadata", function() {
+ 
+     video.addEventListener("loadedmetadata", function() {
       capture.style.display = 'inline-flex';
-      width = this.videoWidth;
-      height = this.videoHeight;
+      width = video.videoWidth;
+      height = video.videoHeight;
       canvas.setAttribute("width", width);
       canvas.setAttribute("height", height);
+      console.log(width,height);
       //
       // ...
     });
@@ -134,6 +144,8 @@ class Photo extends Component {
 
     img.setAttribute("src", canvas.toDataURL("image/png"));
     img.setAttribute("width", window.innerWidth);
+
+    
 
     img.style.opacity = 1;
     if(this.props.isMulti){

@@ -1,7 +1,7 @@
  # Photo
  > This component is for capturing an image with getUserMedia HTML5 and return a an image of type Base64 .
  you simply use the data returned from the component like this :
-```<img src={value returned from the component} width="" height />```
+```<img src={value returned from the component} width="" height="" />```
 __it's work corecctely with Dialog component of material-ui__
 
 ### Demo ```isMulti={true}``` [Photo](https://eloquent-kare-2a923f.netlify.com/)
@@ -34,7 +34,7 @@ getData = src => {
 ### The button that open the dialog :
 ```
 <IconButton onClick={this.handelOpenCloseDialog}>
-         <PhotoCamera />
+         <PhotoCamera /> // icon material-ui/icons
         </IconButton>
 ```
 
@@ -58,6 +58,8 @@ getData = src => {
  <Photo
               sendData={this.getData}
               isMulti={true}
+              width={380} // optional
+              height={640} // optional
               handelOpenCloseDialog={this.handelOpenCloseDialog}
             />
 ```

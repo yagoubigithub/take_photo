@@ -37,7 +37,9 @@ class App extends Component {
           
             <Photo
               sendData={this.getData}
-              isMulti={false}
+              isMulti={true}
+              
+              
               handelOpenCloseDialog={this.handelOpenCloseDialog}
             />
           )
